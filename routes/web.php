@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\C_menu;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[Controller::class, 'verInicio']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/',[C_menu::class, 'verInicio']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [C_menu::class,'verMenu'])->name('dashboard');
 
